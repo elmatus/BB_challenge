@@ -49,7 +49,7 @@ with open(filename, "w", encoding="utf-8") as f:
 		if (details_soup.find("span", {"data-uia":"info-creators"}) != None):
 			director = details_soup.find("span", {"data-uia":"info-creators"}).text
 		else:
-			director = "-"
+			director = "No data available"
 
 		# Actores:
 		cast = details_soup.find("span", {"data-uia":"info-starring"}).text
