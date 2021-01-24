@@ -19,4 +19,4 @@ Las variables a obtener de cada título son las siguientes:
 * Rating
 * Tipo (serie/película)
 
-Inicialmente se revisaron las 4 plataformas y se llegó a la conclusión que 
+Inicialmente se revisaron las 4 plataformas y se llegó a la conclusión que la única que ofrece su catálogo completo de forma gratuita y sin tener que iniciar sesión es Acorn TV, por lo que se empezó por esta. Por medio de la biblioteca Beautiful Soup se logró obtener en un archivo CSV el título, URL, sinópsis y tipo de cada película y serie de la plataforma. Las demás variables no se indican en esta plataforma. El script en Python, correspondiente a 
