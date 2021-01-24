@@ -9,12 +9,12 @@ Desafío: Obtener el catálogo completo de películas y series por medio de web 
 
 Las variables a obtener de cada título son las siguientes:
 
-*Título
-*Año
-*Directores
-*Actores
-*Link
-*Descripción
-*Géneros
-*Rating
-*Tipo (serie/película)
+* Título
+* Año
+* Directores
+* Actores
+* Link
+* Descripción
+* Géneros
+* Rating
+* Tipo (serie/película)
