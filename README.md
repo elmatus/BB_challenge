@@ -1,4 +1,4 @@
-# BB_challenge
+# BB Challenge
 
 Desafío: Obtener el catálogo completo de películas y series por medio de web scraping de alguna de las siguientes plataformas:
 
@@ -18,3 +18,5 @@ Las variables a obtener de cada título son las siguientes:
 * Géneros
 * Rating
 * Tipo (serie/película)
+
+Inicialmente se revisaron las 4 plataformas y se llegó a la conclusión que 
