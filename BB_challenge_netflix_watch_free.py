@@ -16,20 +16,18 @@ page_soup = soup(page_html, "html.parser")
 title_container = page_soup.findAll("div", {"class":"multi-title-card-item-content"})
 
 filename = "netflix_watch_free_catalogue.csv"
-
 csv_headers = "Title, Year, Director, Cast, URL, Synopsis, Genre, Type, Age rating, Number of seasons, Duration\n"
 
-# Abro de esta manera el archivo, ya que en la sinopsis de una pelicula aparecia
-# un caracter que no podía imprimir, lo cual era un error. 
 with open(filename, "w", encoding="utf-8") as f: 
 	f.write(csv_headers)
 
 	for title in title_container:
 		# Obtengo el nombre del titulo:
 		title_name = title.a.picture.img['alt']
-		# Obtengo la URL:
+		# URL para mirar el titulo:
 		title_url_watch = title.a['href']
 		title_url_watch = "netflix.com" + title_url_watch
+		# URL para ver detalles del titulo:
 		title_url_more = title.div.p.a['href']
 		title_url_more = "https://www.netflix.com/ar-en" + title_url_more 
 
@@ -76,14 +74,14 @@ with open(filename, "w", encoding="utf-8") as f:
 		print("title: " + title_name + " | year: " + year + " | director: " + director)
 
 		# Escibo los valores obtenidos en el archivo csv:
-		f.write(title_name.replace(",", ".") + "," + \
-				year + "," + \
-				director.replace(",", " | ") + "," + \
-				cast.replace(",", " | ") + "," + \
-				title_url_watch + "," + \
-				synopsis.replace(",", ".") + "," + \
-				genre.replace(",", " | ") + "," + \
-				title_type + "," + \
-				age_rating + "," + \
-				seasons + "," + \
+		f.write(title_name.replace(",", ".") + "," + 
+				year + "," + 
+				director.replace(",", " | ") + "," + 
+				cast.replace(",", " | ") + "," + 
+				title_url_watch + "," + 
+				synopsis.replace(",", ".") + "," + 
+				genre.replace(",", " | ") + "," + 
+				title_type + "," + 
+				age_rating + "," +
+				seasons + "," +
 				duration + "\n")
