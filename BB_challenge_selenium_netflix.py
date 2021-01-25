@@ -3,6 +3,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+# Pasos para usar selenium:
+# 1) pip install selenium
+# 2) Descargar el driver para chrome e incluirlo en la misma carpeta que este archivo 
+#	 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 import time
 import csv 
@@ -21,30 +25,28 @@ def scroll_down_to_end ():
 
 	while True:
 
-	    # Scroll down to the bottom.
+	    # Desplazarse hacia abajo al final de la pagina:
 	    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-	    # Wait to load the page.
 	    time.sleep(2)
 
-	    # Calculate new scroll height and compare with last scroll height.
+	    # Calculo la altura del nuevo "scroll" y lo comparo con el anterior:
 	    new_height = driver.execute_script("return document.body.scrollHeight")
 
 	    if new_height == last_height:
-
 	        break
-
+	    # Actualizo altura:
 	    last_height = new_height
 	return
 #################################################################################
+
 # Funcion para obtener los titulos de peliculas/series:
 def get_title(title_type, titles_list):
-
+	# Obtengo todos los titulos:
 	titles = driver.find_elements_by_class_name("fallback-text")
 
 	for title in titles:
 
-		# Imprimo en la terminal algunos valores:
+		# Imprimo en la terminal el titulo y el tipo:
 		print("Title: " + title.text + " | Type: " + title_type)
 
 		# Escibo los valores obtenidos en una lista:
@@ -53,7 +55,7 @@ def get_title(title_type, titles_list):
 	return
 #################################################################################
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATH = ".\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 driver.get("https://www.netflix.com/ar/login")
@@ -68,9 +70,7 @@ time.sleep(1) # Espera 1 segundo
 
 # Tomo los datos de la contraseña:
 password = driver.find_element_by_name("password")
-#print("Ingrese su contraseña:")
 password_str = getpass.getpass(prompt="Ingrese su contraseña:")
-#password_str = input()
 password.send_keys(password_str)
 
 time.sleep(2) 
